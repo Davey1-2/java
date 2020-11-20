@@ -12,14 +12,15 @@ public class Main {
         int[] yes = new int[10];
         String[] tasks = new String[11];
 
-        int i = 0;
+        int b = 0;
 
 
-        while (i <= numbers.length){
+        while (b <= numbers.length){
 
             int choose;
             int managment;
             int a = 0;
+
 
 
             String create = new String();
@@ -29,7 +30,7 @@ public class Main {
 
             System.out.println("--------------------------------------------------");
                 System.out.println("You can add up to 10 tasks");
-                System.out.println("You currently have " + numbers[i] + "/10");
+                System.out.println("You currently have " + numbers[b] + "/10");
                 System.out.println("null means there is no assigned task");
                 System.out.println("--------------------------------------------------");
                 System.out.println("1) Manage tasks");
@@ -53,9 +54,9 @@ public class Main {
                     if (managment == 1) {
                         System.out.println("Enter your task:");
                         create = sc.nextLine();
-                        tasks[i] = create;
+                        tasks[b] = create;
                         System.out.println("Task created");
-                        i++;
+                        b++;
                         System.out.println("--------------------------------------------------");
                     }
 
@@ -79,12 +80,17 @@ public class Main {
                         tasks[choose] = null;
                         System.out.println("Task destroyed");
                         System.out.println("--------------------------------------------------");
-                        i--;
+                        b--;
+                        for (int i = choose + 1; i < 10; i++) {
+                            tasks[i - 1] = tasks[i];
 
-                        for (int j = 0; j < i + 1 ; j++) {
-                            tasks[choose] = tasks[i];
+
                         }
                     }
+
+
+
+
 
 
                     if (managment == 4){
@@ -101,6 +107,8 @@ public class Main {
                 else {
                     break;
                 }
+
+
         }
 
     }
